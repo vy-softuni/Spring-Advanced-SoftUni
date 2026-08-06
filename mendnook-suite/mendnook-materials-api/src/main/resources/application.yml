@@ -1,0 +1,30 @@
+server:
+  port: ${MENDNOOK_MATERIAL_PORT:8081}
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  application:
+    name: mendnook-materials-api
+  datasource:
+    url: ${MENDNOOK_MATERIAL_DB_URL:jdbc:postgresql://localhost:5432/mendnook_material_db}
+    username: ${MENDNOOK_DB_USER:postgres}
+    password: ${MENDNOOK_DB_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+
+mendnook:
+  jwt-secret: ${MENDNOOK_JWT_SECRET:mendnook-local-development-secret-key-2026}
+
+logging:
+  level:
+    app.mendnook: INFO
+  file:
+    name: logs/mendnook-materials.log
